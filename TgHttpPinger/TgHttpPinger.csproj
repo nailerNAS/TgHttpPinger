@@ -55,6 +55,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Config.cs" />
     <Compile Include="Pinger\Pinger.cs" />
     <Compile Include="Pinger\PingResult.cs" />
     <Compile Include="Program.cs" />
