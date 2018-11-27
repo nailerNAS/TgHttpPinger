@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TgHttpPinger
 {
@@ -10,6 +6,8 @@ namespace TgHttpPinger
     {
         static void Main(string[] args)
         {
+            TgBot tgBot = new TgBot();
+            Console.ReadLine();
         }
     }
 }

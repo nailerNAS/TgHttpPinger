@@ -28,13 +28,29 @@ namespace TgHttpPinger.Pinger
                 pingResult.IsTimedOut = true;
             }
 
+            catch(FlurlHttpException ex)
+            {
+                pingResult.Exception = ex.InnerException.InnerException.Message;
+            }
+
             return pingResult;
         }
 
-        public static bool IsValidUrl(string url)
+        public static string ParseUrl(string text)
         {
-            bool result = Uri.TryCreate(url, UriKind.Absolute, out Uri uri);
-            return result && (uri.Scheme == Uri.UriSchemeHttp || uri.Scheme == Uri.UriSchemeHttps);
+            string ret = "";
+
+            if (!text.StartsWith("http")) ret += "http://";
+            ret += text;
+
+            bool result = Uri.TryCreate(ret, UriKind.Absolute, out Uri uri);
+
+            if (result && (uri.Scheme == Uri.UriSchemeHttp || uri.Scheme == Uri.UriSchemeHttps))
+            {
+                return ret;
+            }
+
+            return string.Empty;
         }
     }
 }

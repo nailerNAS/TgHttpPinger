@@ -6,5 +6,6 @@
         public int StatusCode;
         public float Delay;
         public bool IsTimedOut;
+        public string Exception;
     }
 }
